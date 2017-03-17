@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 export default class Header extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
 
     render() {
