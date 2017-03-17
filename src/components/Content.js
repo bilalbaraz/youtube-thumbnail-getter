@@ -42,7 +42,7 @@ export default class Content extends Component {
         return (
         <main>
             <Row>
-                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
+                <Col md={8} sm={8} xs={10} lg={6} xsOffset={1} lgOffset={3} mdOffset={2} smOffset={2}>
                     <center>
                         <Thumbnail placeholder={this.state.thumbnail}/>
                     </center>
@@ -50,7 +50,7 @@ export default class Content extends Component {
             </Row>
             <br/>
             <Row>
-                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
+                <Col md={8} sm={8} xs={10} lg={6} xsOffset={1} lgOffset={3} mdOffset={2} smOffset={2}>
                     <center>
                         <Download isDownload={this.state.isDownload} url={this.state.thumbnail}/>
                     </center>
@@ -58,7 +58,7 @@ export default class Content extends Component {
             </Row>
             <br/>
             <Row>
-                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
+                <Col md={8} sm={8} xs={12} lg={6} lgOffset={3} mdOffset={2} smOffset={2}>
                     <form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <FormControl
