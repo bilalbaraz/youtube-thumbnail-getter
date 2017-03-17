@@ -19,8 +19,17 @@ export default class Content extends Component {
     };
 
     handleSubmit = (e) => {
-        this.setState({thumbnail: Youtube.thumb(this.state.value)});
-        this.setState({value: ''});
+        if(this.state.value != '' || this.state.value.length > 0){
+
+            this.setState({thumbnail: Youtube.thumb(this.state.value)});
+            this.setState({value: ''});
+
+        }else{
+
+            alert("You cannot send it empty");
+
+        }
+
         e.preventDefault();
         return false;
     };
@@ -28,6 +37,14 @@ export default class Content extends Component {
     render() {
         return (
         <main>
+            <Row>
+                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
+                    <center>
+                        <Thumbnail placeholder={this.state.thumbnail}/>
+                    </center>
+                </Col>
+            </Row>
+            <br/>
             <Row>
                 <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
                     <form onSubmit={this.handleSubmit}>
@@ -42,13 +59,6 @@ export default class Content extends Component {
                             <HelpBlock>Your input must contain YouTube video link</HelpBlock>
                         </FormGroup>
                     </form>
-                </Col>
-            </Row>
-            <Row>
-                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
-                    <center>
-                        <Thumbnail placeholder={this.state.thumbnail}/>
-                    </center>
                 </Col>
             </Row>
         </main>
