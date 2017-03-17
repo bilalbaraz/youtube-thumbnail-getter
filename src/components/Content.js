@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 
 import Thumbnail from './Thumbnail';
+import Download from './Download';
 
 import { Youtube } from '../Youtube.js';
 
@@ -9,7 +10,7 @@ export default class Content extends Component {
 
     constructor(props){
         super(props);
-        this.state = {value: '', thumbnail: 'images/thumbnail.jpg'};
+        this.state = {value: '', thumbnail: 'images/thumbnail.jpg', isDownload: false};
     }
 
     handleChange = (event) => {
@@ -19,10 +20,13 @@ export default class Content extends Component {
     };
 
     handleSubmit = (e) => {
-        if(this.state.value != '' || this.state.value.length > 0){
+        if(this.state.value !== '' || this.state.value.length > 0){
 
-            this.setState({thumbnail: Youtube.thumb(this.state.value)});
-            this.setState({value: ''});
+            this.setState({
+                thumbnail: Youtube.thumb(this.state.value),
+                value: '',
+                isDownload: true
+            });
 
         }else{
 
@@ -41,6 +45,14 @@ export default class Content extends Component {
                 <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
                     <center>
                         <Thumbnail placeholder={this.state.thumbnail}/>
+                    </center>
+                </Col>
+            </Row>
+            <br/>
+            <Row>
+                <Col md={6} sm={6} xs={6} lg={6} xsOffset={3} lgOffset={3} mdOffset={3} smOffset={3}>
+                    <center>
+                        <Download isDownload={this.state.isDownload} url={this.state.thumbnail}/>
                     </center>
                 </Col>
             </Row>
