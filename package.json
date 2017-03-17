@@ -9,10 +9,13 @@
     "youtube-thumbnail": "^1.3.0"
   },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
-  }
+    "build": "react-scripts build",
+    "deploy" : "npm run build && gh-pages -d build"
+  },
+  "homepage": "https://bilalbaraz.github.io/youtube-thumbnail-grabber-reactjs/"
 }
